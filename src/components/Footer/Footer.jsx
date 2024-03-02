@@ -1,48 +1,85 @@
-import React from "react";
+import React, { useState } from "react";
+import './Footer.css';
+
 
 const Footer = () => {
+    const [AboutMenuOpen, setAboutMenuOpen] = useState(false);
+    const [menuOpen, setMenuOpen] = useState(false);
+    const [email, setEmail] = useState('');
+
+    const border1 = { border : 'solid 2px red'}
+        
+    const toggleMenu = () => {
+        setMenuOpen(!menuOpen);
+    };
+    const toggleAboutMenu = () => {
+        setAboutMenuOpen(!AboutMenuOpen);
+    }
+
+    const handleInputChange = (e) => {
+        setEmail(e.target.value);
+    };
+
+    const handleSubmit = (e) => {
+        e.preventDefault(); // Prevents the default form submission behavior
+        
+        // Here you can perform any validation or additional logic before submitting the form
+        if (email.trim() === '') {
+            alert('Please enter your email.');
+            return;
+        }
+
+        // Submit the form data
+        alert('Submitting form with email :- ' + email);
+
+        // You can also reset the form fields after submission if needed
+        setEmail('');
+    };
 
     return (
         <>
-            <div style={{width: '100%', display: 'flex', justifyContent: 'center', flexDirection: 'column', backgroundColor: '#E6E6E6'}} className="footer-container">
+            <div  className="footer-container">
                 <div className="footerCard">
-                    <div className="footer-faq">
+                    <div  className="footer-faq">
                         <div className="title">
-                            <button className="aboutus">ABOUT US</button>
-                        </div>
-                        <div className="menu">
-                            <p>Contact Us</p>
-                            <p>Frequently Asked Questions</p>
-                            <p>Shipping & Returns</p>
-                            <p>Pre-Owned Guide</p>
-                            <p>Sell on Bluefly</p>
-                            <p>Privacy Policy</p>
-                            <p>Terms & Conditions</p>
-                            <p>Do not sell my personal information</p>
-                            <p>Shop Pay Installments</p>
+                            <button onClick={toggleAboutMenu} className="aboutus">
+                                <p className="textAbout">ABOUT US</p>
+                            </button>
+                            <div  className="menu"  id="menu">
+                                <ul className="list" >
+                                    <li className="aboutText">Contact Us</li>
+                                    <li className="aboutText">Frequently Asked Questions</li>
+                                    <li className="aboutText">Shipping & Returns</li>
+                                    <li className="aboutText">Pre-Owned Guide</li>
+                                    <li className="aboutText">Sell on Bluefly</li>
+                                </ul>
+                                <ul className="list2" >
+                                    <li className="aboutText">Privacy Policy</li>
+                                    <li className="aboutText">Terms & Conditions</li>
+                                    <li className="aboutText">Do not sell my personal information</li>
+                                    <li className="aboutText">Shop Pay Installments</li>
+                                </ul>
+                            </div>
                         </div>
                     </div>
-                    <div className="signUp">
-                        <button className="signupButton">SIGN UP AND SAVE</button>
-                    </div>
-                    <div className="menu">
-                        <form action="submit">
-                            <label htmlFor="email">Subscribe to get exclusive offers on designer brands</label>
-                            <br />
-                            <input type="email" name="" id="email" placeholder="Enter your email" />
-                            <br />
-                            <input type="button" value="Subscribe" />
-                        </form>
+                    <div  className="signUp">
+                        <button onClick={toggleMenu} className="signupButton">
+                            <p className="textAbout">SIGN UP AND SAVE</p>
+                        </button>
+                        <div  className="menu1">
+                            <form onSubmit={handleSubmit}>
+                                <label htmlFor="email">Subscribe to get exclusive offers on designer brands</label>
+                                <br />
+                                <input type="email" name="" id="email" placeholder="Enter your email" value={email} onChange={handleInputChange} required />
+                                <br />
+                                <input type="submit" value="Subscribe"  id="subscribe"/>
+                            </form>
+                        </div>
                     </div>
                 </div>
-                <div style={{width: '100%', display: 'flex', flexDirection: 'column', alignItems: 'center'}} className="copywrite">
-                    <img style={{width: '220px'}} src="https://www.bluefly.com/cdn/shop/files/Untitled_2_.png_5_x104@2x.png?v=1620852820" alt="" />
-                    <p>
-        © 2024 Bluefly
-        
-          BLUEFLY.COM OR ITS AFFILIATES  ALL RIGHTS RESERVED.
-        
-      </p>
+                <div  className="copywrite">
+                    <img className="logo-footer" src="https://www.bluefly.com/cdn/shop/files/Untitled_2_.png_5_x104@2x.png?v=1620852820" alt="" />
+                    <p className="copywrite-text">© 2024 Bluefly BLUEFLY.COM OR ITS AFFILIATES  ALL RIGHTS RESERVED.</p>
                 </div>
             </div>
         </>
