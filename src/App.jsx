@@ -1,12 +1,16 @@
-import './App.css'
+import React from 'react';
+// import Dashboard from './pages/Dashboard/Dashboard'
+import { AuthProvider } from './Context/AuthContext';
+import Navbar from './pages/Home/Navbar';
+import Footer from './components/Footer/Footer';
 
-function App() {
-
+const App = () => {
   return (
-    <>
-      <h3>hello</h3>
-    </>
-  )
-}
+    <AuthProvider>
+      <Navbar />
+      <Footer />
+    </AuthProvider>
+  );
+};
 
-export default App
+export default App;
