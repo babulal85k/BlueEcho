@@ -1,17 +1,16 @@
 import React, { useState } from 'react';
-import { useAuth } from '../../Context/AuthContext';
+import AuthService from '../../services/AuthService'; // Assuming AuthService is in a file named 'AuthService.js'
 
-const LoginForm = () => {
-  const { login } = useAuth();
+const Login = () => {
   const [username, setUsername] = useState('');
   const [password, setPassword] = useState('');
   const [error, setError] = useState('');
 
-  const handleSubmit = (e) => {
-    e.preventDefault();
-    // Here you can add your authentication logic
-    if (username === 'user' && password === 'password') {
-      login(username);
+  const handleLogin = () => {
+    const isAuthenticated = AuthService.login(username, password);
+    if (isAuthenticated) {
+      // Redirect to dashboard or any other page
+      window.location.href = '/src/pages/Home/Home.jsx';
     } else {
       setError('Invalid username or password');
     }
@@ -20,30 +19,39 @@ const LoginForm = () => {
   return (
     <div>
       <h2>Login</h2>
-      <form onSubmit={handleSubmit}>
-        <div>
-          <label htmlFor="username">Username:</label>
-          <input
-            type="text"
-            id="username"
-            value={username}
-            onChange={(e) => setUsername(e.target.value)}
-          />
-        </div>
-        <div>
-          <label htmlFor="password">Password:</label>
-          <input
-            type="password"
-            id="password"
-            value={password}
-            onChange={(e) => setPassword(e.target.value)}
-          />
-        </div>
-        <button type="submit">Login</button>
-      </form>
-      {error && <p style={{ color: 'red' }}>{error}</p>}
+      <input
+        type="text"
+        placeholder="Username"
+        value={username}
+        onChange={(e) => setUsername(e.target.value)}
+      />
+      <br />
+      <input
+        type="password"
+        placeholder="Password"
+        value={password}
+        onChange={(e) => setPassword(e.target.value)}
+      />
+      <br />
+      <button onClick={handleLogin}>Login</button>
+      {error && <div style={{ color: 'red' }}>{error}</div>}
     </div>
   );
 };
 
-export default LoginForm;
+const Logout = () => {
+  const handleLogout = () => {
+    AuthService.logout();
+    // Redirect to login page
+    window.location.href = '/login';
+  };
+
+  return (
+    <div>
+      <h2>Logout</h2>
+      <button onClick={handleLogout}>Logout</button>
+    </div>
+  );
+};
+
+export { Login, Logout };

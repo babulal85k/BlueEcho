@@ -1,0 +1,30 @@
+.pro {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  width: auto;
+  margin: 1%;
+  background-color: white;
+  box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+  
+}
+
+#pro {
+  width: 100px;
+  height: auto;
+}
+
+
+
+.pro > h3 , p {
+  text-align: center;
+  color: #444;
+}
+
+.pro > h3 {
+  text-transform: uppercase;
+  letter-spacing: .2em;
+  margin: 1%;
+  text-wrap: wrap;
+}

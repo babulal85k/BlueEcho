@@ -1,15 +1,14 @@
 import React from 'react';
 // import Dashboard from './pages/Dashboard/Dashboard'
-import { AuthProvider } from './Context/AuthContext';
-import Navbar from './pages/Home/Navbar';
-import Footer from './components/Footer/Footer';
+import { AuthContextProvider } from './Context/AuthContext';
+// import AllRoutes from './pages/AllRoutes';
+import Home from './pages/Home/Home';
 
 const App = () => {
   return (
-    <AuthProvider>
-      <Navbar />
-      <Footer />
-    </AuthProvider>
+    <AuthContextProvider>
+      <Home />
+    </AuthContextProvider>
   );
 };
 

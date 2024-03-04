@@ -1,9 +1,10 @@
-import React, { cloneElement } from 'react';
+import React from 'react';
+import './Navigation.css';
 
 const Navigation = ({children}) => {
     return (
         <>
-            <div style={{display: 'flex', gap: '2%', justifyContent: 'space-around', margin: '1% 0 1%'}} className='navigation-container'>
+            <div className='navigation-container'>
                 <div>
                     <button className="clothing">CLOTHING</button>
                 </div>
@@ -32,10 +33,10 @@ const Navigation = ({children}) => {
                     <button className='under'>UNDER $ 50</button>
                 </div>
             </div>
-            <div style={{display: 'flex', width: '100%', justifyContent: 'center', marginTop: '1%'}} className="clearance">
+            <div className="clearance">
                 <button className="clear">CLEARANCE</button>
             </div>
-            <div style={{width:'100%', backgroundColor: 'black', color: 'white', display: 'flex', justifyContent: 'center', padding: '1px', marginTop: '1%'}} className="adv">
+            <div className="adv">
                 <p>Free</p>
             </div>
         </>

@@ -1,19 +1,16 @@
 import React from 'react';
-import Navbar from './Navbar';
-import { Link } from 'react-router-dom';
+import Navbar from '../Navbar/Navbar';
+import Footer from '../Footer/Footer';
+import Middle from '../Middle/Middle';
 
 const Home = () => {
   return (
     <div>
-      <div className='logo'>
-        <Link>
-          <img src="//www.bluefly.com/cdn/shop/files/BLUEFLY-LOGO-11-20.png?v=1613183141" alt="" />
-        </Link>
-      </div>
       <Navbar />
-      {/* Add your home page content here */}
+      <Middle />
+      <Footer />
     </div>
   );
 };
 
-export default Home; // Make sure to export the component as default
+export default Home;

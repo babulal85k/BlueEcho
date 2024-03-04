@@ -1,0 +1,42 @@
+.navigation-container {
+    display: flex;
+    margin-left: 10%;
+    margin-right: 10%;
+    justify-content: space-around;
+    flex-wrap: wrap;
+}
+
+.clothing, .shoes, .handbags, .designer, .sunglasses, .jewelry, .accessories, .home, .under, .clear {
+    border: none;
+    background-color: white;
+    text-transform: uppercase;
+    letter-spacing: 0.2em;
+
+}
+
+.clear {
+    color: red;
+}
+
+.clearance {
+    display: flex;
+    width: 100%;
+    justify-content: center;
+    margin-top: 1%;
+}
+
+.adv {
+    width: 100%;
+    background-color: black;
+    color: white;
+    display: flex;
+    justify-content: center;
+    margin-top: 1%;
+}
+
+.adv > p {
+    font-size: 17px;
+    margin: 7px;
+    padding: 0;
+}
+
