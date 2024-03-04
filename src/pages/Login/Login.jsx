@@ -1,5 +1,8 @@
 import React, { useState } from 'react';
 import AuthService from '../../services/AuthService'; // Assuming AuthService is in a file named 'AuthService.js'
+import Footer from '../Footer/Footer';
+import Navbar from '../Navbar/Navbar';
+import Logout from './Logout';
 
 const Login = () => {
   const [username, setUsername] = useState('');
@@ -17,41 +20,33 @@ const Login = () => {
   };
 
   return (
-    <div>
-      <h2>Login</h2>
-      <input
-        type="text"
-        placeholder="Username"
-        value={username}
-        onChange={(e) => setUsername(e.target.value)}
-      />
-      <br />
-      <input
-        type="password"
-        placeholder="Password"
-        value={password}
-        onChange={(e) => setPassword(e.target.value)}
-      />
-      <br />
-      <button onClick={handleLogin}>Login</button>
-      {error && <div style={{ color: 'red' }}>{error}</div>}
-    </div>
+    <>
+      <Navbar />
+      <div>
+        <h2>Login</h2>
+        <input
+          type="text"
+          placeholder="Username"
+          value={username}
+          onChange={(e) => setUsername(e.target.value)}
+        />
+        <br />
+        <input
+          type="password"
+          placeholder="Password"
+          value={password}
+          onChange={(e) => setPassword(e.target.value)}
+        />
+        <br />
+        <button onClick={handleLogin}>Login</button>
+        {error && <div style={{ color: 'red' }}>{error}</div>}
+        <Logout />
+      </div>
+      <Footer />
+    </>
   );
 };
 
-const Logout = () => {
-  const handleLogout = () => {
-    AuthService.logout();
-    // Redirect to login page
-    window.location.href = '/login';
-  };
 
-  return (
-    <div>
-      <h2>Logout</h2>
-      <button onClick={handleLogout}>Logout</button>
-    </div>
-  );
-};
 
-export { Login, Logout };
+export default Login;
