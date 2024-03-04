@@ -1,5 +1,7 @@
 # Bluesky.com
 
+[![Netlify Status](https://api.netlify.com/api/v1/badges/ef4cf793-fb54-4b6a-80eb-4ae10c7524cb/deploy-status)](https://app.netlify.com/sites/bluecho/deploys)
+
 ## Table of Contents
 
 - [Introduction](#introduction)
