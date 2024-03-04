@@ -1,11 +1,11 @@
 import React, { useState } from 'react';
-import { useHistory } from 'react-router-dom';
+import { useHistory } from 'react-router-dom'; // Import useHistory
 import AuthService from '../../services/AuthService';
 import Navbar from '../Navbar/Navbar';
 import Footer from '../Footer/Footer';
 
 const Register = () => {
-  const history = useHistory();
+  const history = useHistory(); // Initialize useHistory
   const [username, setUsername] = useState('');
   const [password, setPassword] = useState('');
   const [confirmPassword, setConfirmPassword] = useState('');
@@ -21,7 +21,7 @@ const Register = () => {
 
     try {
       await AuthService.signup(username, password);
-      history.push('/login'); // Redirect using React Router
+      history.push('/login'); // Redirect using useHistory
     } catch (err) {
       setError('Failed to sign up. Please try again.');
     }
