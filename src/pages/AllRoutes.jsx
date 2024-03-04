@@ -1,9 +1,11 @@
 import React from 'react';
-import { BrowserRouter as Router, Route, Routes, Outlet } from 'react-router-dom';
-import { Login, Logout } from './Login/Login';
-import Register from './Register/Register';
+import { Route, Routes, Outlet } from 'react-router-dom';
+import Login from './Login/Login';
+import Logout from './Login/Logout';
 import Cart from './Cart/Cart';
 import Home from './Home/Home';
+import Register from './Register/Register';
+import Whislist from './Whislist/Whislist';
 
 const AllRoutes = () => {
   return (
@@ -14,6 +16,8 @@ const AllRoutes = () => {
           <Route path="/logout" element={<Logout />} />
           <Route path="/cart" element={<Cart />} />
           <Route path="/" element={<Home />} />
+          <Route path='/register' element={<Register />} />
+          <Route path='/whislist' element={<Whislist />} />
         </Route>
       </Routes>
   );

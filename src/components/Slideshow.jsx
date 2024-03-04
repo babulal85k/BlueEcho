@@ -36,24 +36,27 @@ const Slideshow = ({ images }) => {
   };
 
   return (
-    <div className="slideshow-container">
-      <div className="slide-container">
-        <img
-          id='imgslide'
-          src={images[currentIndex]}
-          alt={`Slide ${currentIndex + 1}`}
-          className="slide active"
-        />
-        <div className="slide-content">
-          <button className='slideButton' onClick={goToPrevSlide}>Prev</button>
-          <div className="slidetitle">
+  <div className="circle-container1">
+    <div className="img-container">
+      <button className='slideButton' onClick={goToPrevSlide}><i class="arrow left"></i></button>
+      <div className="img-content">
+        <div className="circle1">
+          <img
+            id='imgslide'
+            src={images[currentIndex]}
+            alt={`Slide ${currentIndex + 1}`}
+            className="slide active"
+          />
+          <div className="cover">
             <h3>{products.length > 0 && products[currentIndex].title}</h3>
             <p>{products.length > 0 && products[currentIndex].description}</p>
           </div>
-          <button className='slideButton' onClick={goToNextSlide}>Next</button>
         </div>
       </div>
+      <button className='slideButton' onClick={goToNextSlide}><i class="arrow right"></i></button>
     </div>
+</div>
+
   );
 };
 

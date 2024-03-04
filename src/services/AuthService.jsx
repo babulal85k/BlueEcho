@@ -1,42 +1,38 @@
 const AuthService = {
-    // Simulated user data for demonstration purposes
-    users: [
-      { id: 1, username: 'user1', password: 'password1' },
-      { id: 2, username: 'user2', password: 'password2' },
-    ],
-  
-    // Method to authenticate a user
-    login: (username, password) => {
-      // Simulate user authentication
-      const user = AuthService.users.find(
-        (user) => user.username === username && user.password === password
-      );
-      if (user) {
-        // Store user data in local storage or session storage
-        localStorage.setItem('currentUser', JSON.stringify(user));
-        return true; // Authentication successful
-      }
-      return false; // Authentication failed
-    },
-  
-    // Method to check if a user is authenticated
-    isAuthenticated: () => {
-      // Check if currentUser is stored in local storage or session storage
-      return localStorage.getItem('currentUser') !== null;
-    },
-  
-    // Method to get the current authenticated user
-    getCurrentUser: () => {
-      // Retrieve currentUser from local storage or session storage
-      return JSON.parse(localStorage.getItem('currentUser'));
-    },
-  
-    // Method to log out the current user
-    logout: () => {
-      // Remove currentUser from local storage or session storage
-      localStorage.removeItem('currentUser');
-    },
-  };
-  
-  export default AuthService;
-  
+  users: [
+    { id: 1, username: 'user1', passwordHash: 'hashedPassword1' },
+    { id: 2, username: 'user2', passwordHash: 'hashedPassword2' },
+  ],
+
+  login: (username, password) => {
+    const user = AuthService.users.find(
+      (user) => user.username === username && AuthService.comparePasswords(password, user.passwordHash)
+    );
+    if (user) {
+      localStorage.setItem('currentUser', JSON.stringify(user));
+      return true;
+    }
+    return false;
+  },
+
+  isAuthenticated: () => {
+    return localStorage.getItem('currentUser') !== null;
+  },
+
+  getCurrentUser: () => {
+    return JSON.parse(localStorage.getItem('currentUser'));
+  },
+
+  logout: () => {
+    localStorage.removeItem('currentUser');
+  },
+
+  comparePasswords: (password, passwordHash) => {
+    // Implement password hashing and comparison logic
+    // Example:
+    // return bcrypt.compareSync(password, passwordHash);
+    return password === passwordHash; // Simulated comparison
+  },
+};
+
+export default AuthService;

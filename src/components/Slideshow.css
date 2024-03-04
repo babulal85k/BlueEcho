@@ -1,69 +1,76 @@
-/* Slideshow container */
-.slideshow-container {
+.circle-container1 {
   position: relative;
-  max-width: 100%;
-  overflow: hidden;
-  background-color: rgb(104, 104, 131);
+  display: inline-block;
+  margin-bottom: 10px;
+  display: flex;
 }
 
-/* Individual slide */
-.slide {
-  display: block;
+.img-container {
+  display: flex;
+  flex-direction: row;
+  width: 100%;
+  justify-content: space-evenly;
+  align-items: center;
+  align-content: center;
+}
+
+.circle1 {
+  position: relative;
+  width: 720px;
+  height: 720px;
+  margin: 0 auto;
+  overflow: hidden;
+  border-radius: 4%;
+}
+
+.circle img {
   width: 100%;
   height: auto;
+  display: block;
 }
 
-/* Slide content */
-.slide-content {
+.cover {
   position: absolute;
-  bottom: 20px;
+  top: 50%;
   left: 50%;
-  transform: translateX(-50%);
-  display: flex;
-  align-items: center;
+  transform: translate(-50%, -50%);
+  background-color: rgba(0, 0, 0, 0.5);
+  color: white;
+  padding: 20px;
+  text-align: center;
+  z-index: 1;
+  width: 80%; /* Adjust width as needed */
+  max-width: 300px; /* Set maximum width if necessary */
 }
 
-/* Slide title */
-.slidetitle {
-  margin: 0 20px;
-  background-color: #33333362;
-}
 
-.slidetitle h3 {
-  font-size: 1.5rem;
-  margin-bottom: 5px;
-  color: #fff;
-}
-
-.slidetitle p {
-  font-size: 1rem;
+.cover h3 {
   margin: 0;
-  color: #fff;
+  font-size: 24px;
 }
 
-/* Slide navigation buttons */
+.cover p {
+  margin: 10px 0;
+  font-size: 16px;
+}
+
 .slideButton {
-  background-color: #fff;
-  color: #333;
-  border: 1px solid #333;
-  padding: 5px 10px;
-  cursor: pointer;
-  transition: background-color 0.3s ease;
+  /* Add styles for your slide buttons */
 }
 
-.slideButton:hover {
-  background-color: #333;
-  color: #fff;
+.arrow {
+  border: solid rgb(19, 18, 18);
+  border-width: 0 3px 3px 0;
+  display: inline-block;
+  padding: 30px;
 }
 
-
-#imgslide {
-  width: 50%;
+.right {
+  transform: rotate(-45deg);
+  -webkit-transform: rotate(-45deg);
 }
 
-.slide-container {
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
+.left {
+  transform: rotate(135deg);
+  -webkit-transform: rotate(135deg);
 }

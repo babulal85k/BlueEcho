@@ -51,13 +51,15 @@ const Recommended = () => {
   return (
     <Slider {...settings}>
       {products.map(product => (
-        <div id="pro-container">
-          <div className='pro' key={product.id}>
-            <span className="img">
-              <img id='pro' src={product.image} alt={product.title} />
-            </span>
-            <h3>{product.title}</h3>
-            <p>{'$ ' + product.price}</p>
+        <div className="level1">
+          <div className='circle-container' key={product.id}>
+            <div className="circle">
+              <img src={product.image} alt={product.title} />
+            </div>
+            <div className="text-outside">
+              <h3>{product.title}</h3>
+              <p>{'$ ' + product.price}</p>
+            </div>
           </div>
         </div>
       ))}

@@ -1,8 +1,10 @@
-import React, { useState } from 'react';
+ import React, { useState } from 'react';
 import AuthService from '../../services/AuthService'; // Assuming AuthService is in a file named 'AuthService.js'
 import Footer from '../Footer/Footer';
 import Navbar from '../Navbar/Navbar';
-import Logout from './Logout';
+import './Login.css';
+import { Link } from 'react-router-dom';
+
 
 const Login = () => {
   const [username, setUsername] = useState('');
@@ -13,7 +15,7 @@ const Login = () => {
     const isAuthenticated = AuthService.login(username, password);
     if (isAuthenticated) {
       // Redirect to dashboard or any other page
-      window.location.href = '/src/pages/Home/Home.jsx';
+      window.location.href = '/home/home';
     } else {
       setError('Invalid username or password');
     }
@@ -22,25 +24,29 @@ const Login = () => {
   return (
     <>
       <Navbar />
-      <div>
-        <h2>Login</h2>
+      <div className='login-container'>
+        <h1 className='login-title'>Login</h1>
+        <label className='label-user' htmlFor="login-user">EMAIL</label>
         <input
-          type="text"
-          placeholder="Username"
+          id='login-user'
+          type="email"
           value={username}
           onChange={(e) => setUsername(e.target.value)}
         />
         <br />
+        <label className='label-pass' htmlFor="login-pass">PASSWORD <span className='login-span'>Forgot Password?</span></label>
         <input
+          id='login-pass'
           type="password"
-          placeholder="Password"
           value={password}
           onChange={(e) => setPassword(e.target.value)}
         />
         <br />
-        <button onClick={handleLogin}>Login</button>
+        <button id='login-btn' onClick={handleLogin}>SIGN IN</button>
         {error && <div style={{ color: 'red' }}>{error}</div>}
-        <Logout />
+      </div>
+      <div className="login-link">
+        <Link to='/register' ><p className='register'>Create account</p></Link>
       </div>
       <Footer />
     </>

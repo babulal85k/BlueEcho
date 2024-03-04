@@ -1,0 +1,68 @@
+.login-container {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    align-content: center;
+}
+
+.login-title {
+    font-size: 3.375em;
+    font-family: Tiemann, serif;
+    font-weight: 400;
+    letter-spacing: 0em;
+    line-height: 1;
+    text-transform: uppercase;
+}
+
+
+.label-user {
+    display: flex;
+    align-items: left;
+    width: 28%;
+}
+#login-btn, #login-pass, #login-user {
+    border: none;
+    background-color: black;
+    color: rgb(19, 17, 17);
+    padding: 1% 12%;
+    font-size: 16px;
+    text-align: center;
+    cursor: pointer;
+}
+
+#login-btn {
+    color: white;
+}
+
+.label-pass {
+    display: flex;
+    justify-content: space-between;
+    width: 28%;
+}
+
+#login-pass, #login-user {
+    background-color: rgb(255, 255, 255);
+    border: solid 1px rgb(231, 226, 226);
+    width: 4%;
+}
+
+.login-span {
+    cursor: pointer;
+}
+
+.login-link {
+    width: 100%;
+    text-align: center;
+
+}
+
+.register {
+    color: black;
+    text-decoration: none;
+    font-size: 20px;
+}
+
+.login-link > a {
+    text-decoration: none;
+}
