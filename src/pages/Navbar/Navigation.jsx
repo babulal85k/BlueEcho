@@ -1,21 +1,22 @@
 import React from 'react';
 import './Navigation.css';
+import FilteredProducts from '../filter/FilteredProducts'
 
 const Navigation = ({children}) => {
     return (
         <>
             <div className='navigation-container'>
-                <div>
-                    <button className="clothing">CLOTHING</button>
+                <div className="clothing">
+                    <FilteredProducts   category="electronics" buttonText="Electronics" />
                 </div>
-                <div>
-                    <button className='shoes'>SHOES</button>
+                <div className='jewelery'>
+                    <FilteredProducts category="jewelery" buttonText="Jewelery" />
                 </div>
-                <div>
-                    <button className="handbags">HANDBAGS</button>
+                <div className='men'>
+                    <FilteredProducts category="men clothing" buttonText="Men's Clothing" />
                 </div>
-                <div>
-                    <button className="designer">DESIGNER</button>
+                <div className='women'>
+                    <FilteredProducts category="women clothing" buttonText="Women's Clothing" />
                 </div>
                 <div>
                     <button className="sunglasses">SUNGLASSES</button>

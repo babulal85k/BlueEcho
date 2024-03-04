@@ -5,6 +5,8 @@ import Logout from './Login/Logout';
 import Cart from './Cart/Cart';
 import Home from './Home/Home';
 import Whislist from './Whislist/Whislist';
+import ProductPage from './Product/Product';
+import Search from '../components/Search/Search';
 
 const AllRoutes = () => {
   return (
@@ -16,6 +18,8 @@ const AllRoutes = () => {
           <Route path="/cart" element={<Cart />} />
           <Route path="/" element={<Home />} />
           <Route path='/whislist' element={<Whislist />} />
+          <Route path="/products/:category" element={<ProductPage />} />
+          <Route path='/search' element={<Search />} />
         </Route>
       </Routes>
   );

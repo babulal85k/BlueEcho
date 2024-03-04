@@ -1,32 +1,25 @@
 import React, { useState, useEffect } from 'react';
+import { useParams } from 'react-router-dom';
 import Slider from 'react-slick';
 import axios from 'axios';
+import Navbar from '../Navbar/Navbar';
+import Footer from '../Footer/Footer';
 import 'slick-carousel/slick/slick.css';
 import 'slick-carousel/slick/slick-theme.css';
-import './Recommended.css';
 
-const Recommended = () => {
-  const [products, setProducts] = useState([]);
+const ProductPage = () => {
+  const { category } = useParams();
+  const [filteredProducts, setFilteredProducts] = useState([]);
 
   useEffect(() => {
-    const fetchProducts = async () => {
-      try {
-        const response = await axios.get('https://fakestoreapi.com/products');
-        setProducts(response.data);
-      } catch (error) {
-        console.error('Error fetching products:', error);
-      }
-    };
-
-    fetchProducts();
-  }, []);
-
-  const addToCart = (product) => {
-    // Implement your addToCart logic here
-    console.log('Adding to cart:', product);
-  };
-
-
+    axios.get(`https://fakestoreapi.com/products/category/${category}`)
+      .then(response => {
+        setFilteredProducts(response.data);
+      })
+      .catch(error => {
+        console.error('Error fetching products: ', error);
+      });
+  }, [category]);
   const settings = {
     dots: true,
     infinite: true,
@@ -53,10 +46,16 @@ const Recommended = () => {
     ]
   };
 
+
   return (
-    <Slider {...settings}>
-      {products.map(product => (
-        <div className="level1">
+    <>
+    <Navbar />
+    <div>
+      <h1>Products in {category}</h1>
+      <div>
+      <Slider {...settings}>
+        {filteredProducts.map(product => (
+          <div className="level1">
           <div className='circle-container' key={product.id}>
             <div className="circle">
               <img src={product.image} alt={product.title} />
@@ -65,14 +64,18 @@ const Recommended = () => {
               <h3>{product.title}</h3>
               <p>{'$ ' + product.price}</p>
               <div className="addto">
-                <button onClick={() => addToCart(product)}>Add to Cart</button>
+                <button>Add to Cart</button>
               </div>
             </div>
           </div>
         </div>
-      ))}
-    </Slider>
+        ))}
+        </Slider>
+      </div>
+    </div>
+    <Footer />
+    </>
   );
 };
 
-export default Recommended;
+export default ProductPage;

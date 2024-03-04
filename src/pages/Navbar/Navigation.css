@@ -6,13 +6,16 @@
     flex-wrap: wrap;
 }
 
-.clothing, .shoes, .handbags, .designer, .sunglasses, .jewelry, .accessories, .home, .under, .clear {
+.clothing > a > button, .jewelery > a > button, .men > a > button, .women > a > button, .sunglasses, .jewelry, .accessories, .home, .under, .clear {
     border: none;
     background-color: white;
     text-transform: uppercase;
-    letter-spacing: 0.2em;
+    letter-spacing: 0.1em;
+    cursor: pointer;
 
 }
+
+
 
 .clear {
     color: red;
