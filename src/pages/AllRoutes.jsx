@@ -7,6 +7,7 @@ import Home from './Home/Home';
 import Whislist from './Whislist/Whislist';
 import ProductPage from './Product/Product';
 import Search from '../components/Search/Search';
+import NotFound from './NotFound/NotFound';
 
 const AllRoutes = () => {
   return (
@@ -20,6 +21,7 @@ const AllRoutes = () => {
           <Route path='/whislist' element={<Whislist />} />
           <Route path="/products/:category" element={<ProductPage />} />
           <Route path='/search' element={<Search />} />
+          <Route path='/notfound' element={NotFound} />
         </Route>
       </Routes>
   );

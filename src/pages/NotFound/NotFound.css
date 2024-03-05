@@ -1,0 +1,17 @@
+.not-found-container {
+    text-align: center;
+    margin-top: 50px;
+  }
+  
+  /* Heading styles */
+  .not-found-heading {
+    font-size: 36px;
+    color: #333;
+  }
+  
+  /* Paragraph styles */
+  .not-found-paragraph {
+    font-size: 18px;
+    color: #666;
+  }
+  
